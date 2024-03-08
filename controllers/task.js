@@ -11,4 +11,13 @@ const createTask = async (req, res) => {
   }
 };
 
-module.exports = createTask;
+const deleteTask = async (req, res) => {
+  const removeTask = await task.findOneAndDelete({
+    _id: "65e29df6d0f6acff2786538a",
+  });
+  if (removeTask) {
+    res.status(StatusCodes.OK).json(removeTask);
+  }
+};
+
+module.exports = { createTask, deleteTask };
